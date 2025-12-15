@@ -10,10 +10,10 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
-  { name = "Murugaraj", email = "murugaraj@gmail.com" }
+  { name = "Murugaraj", email = "murugarajr@gmail.com" }
 ]
 maintainers = [
-  { name = "Murugaraj", email = "murugaraj@gmail.com" }
+  { name = "Murugaraj", email = "murugarajr@gmail.com" }
 ]
 keywords = [
   "mcp",

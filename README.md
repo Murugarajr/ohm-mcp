@@ -63,6 +63,30 @@ Works with **GitHub Copilot**, **Cursor IDE**, **Cline**, and any MCP-compatible
 ## 🚀 Quick Start
 
 ### Installation
+
+#### 📦 **Recommended: NPM Method (Auto-installs dependencies)**
+
+No installation required! Use NPX to run the latest version automatically:
+
+```bash
+npx -y ohm-mcp@latest
+```
+
+This is the easiest way to get started. Just add the configuration to your AI assistant (see [IDE Configuration](#ide-configuration) below).
+
+#### 🐍 **Alternative: PyPI Method (For local development)**
+
+Use this method when you need to:
+- Develop locally with the Python package
+- Use a specific Python virtual environment
+- Install from source for customization
+
+**Install from PyPI:**
+```bash
+pip install ohm-mcp
+```
+
+**Install from source (for development):**
 ```bash
 pip install -e .
 ```
