@@ -39,6 +39,18 @@ mcp = FastMCP("code-refactoring-assistant")
 # Configure logging (NEVER use print() for stdio-based servers)
 # For stdio transport, only log critical errors to avoid interfering with protocol
 logging.getLogger().handlers.clear()
+
+# Optional: Enable file logging if OHM_MCP_LOG_PATH is set
+log_path = os.environ.get("OHM_MCP_LOG_PATH")
+if log_path:
+    # Write detailed logs to file when explicitly configured
+    file_handler = logging.FileHandler(log_path)
+    file_handler.setLevel(logging.WARNING)
+    file_handler.setFormatter(
+        logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    )
+    logging.getLogger().addHandler(file_handler)
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)  # Only log errors, not to stdout/stderr
 
@@ -64,7 +76,17 @@ coverage_analyzer = CoverageAnalyzer()
 import_refactorer = ImportRefactoringOrchestrator()
 di_refactorer = DependencyInjectionRefactorer()
 performance_analyzer = PerformanceAnalyzer()
-default_project_root = os.getcwd()  # Or get from configuration
+
+# Use environment variable for project root, or fallback to a safe writable directory
+# When run via npx, os.getcwd() often returns '/' which is read-only
+cwd = os.getcwd()
+if cwd == '/' or not os.access(cwd, os.W_OK):
+    # Use /tmp as fallback for backup/log directories when no proper project root
+    default_project_root = os.environ.get("OHM_MCP_PROJECT_ROOT", "/tmp/ohm-mcp-workspace")
+    os.makedirs(default_project_root, exist_ok=True)
+else:
+    default_project_root = cwd
+
 automated_executor = AutomatedRefactoringExecutor(default_project_root)
 symbol_renamer = SymbolRenamingOrchestrator()
 duplication_detector = DuplicationDetector(min_lines=6, similarity_threshold=0.9)
