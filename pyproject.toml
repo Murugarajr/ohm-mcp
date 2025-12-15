@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ohm-mcp"
+version = "0.1.1"
+description = "AI-Powered Python Refactoring & Code Quality Assistant - MCP Server with AST-based analysis"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Murugaraj", email = "murugaraj@example.com" }
+]
+maintainers = [
+  { name = "Murugaraj", email = "murugaraj@example.com" }
+]
+keywords = [
+  "mcp",
+  "model-context-protocol",
+  "refactoring",
+  "code-quality",
+  "ast",
+  "python",
+  "static-analysis",
+  "testing",
+  "automation",
+  "developer-tools"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Utilities"
+]
+dependencies = [
+  "mcp>=0.1.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["ohm_mcp", "ohm_mcp.refactoring"]
+
+[project.urls]
+Homepage = "https://ohm-mcp.dev"
+
+[project.scripts]
+ohm-mcp = "ohm_mcp.server:main"
