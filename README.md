@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Murugarajr/ohm-mcp-pypi/refs/heads/main/image/ohm-mcp.png" alt="OHM-MCP" width="300">
+<img src="https://raw.githubusercontent.com/Murugarajr/ohm-mcp-pypi/refs/heads/main/image/ohm-mcp.png?token=GHSAT0AAAAAADQXBQJXVCRGZAMLBZA5U2MW2KAQUWQ" alt="OHM-MCP" width="300">
 
 # OHM-MCP
 
